@@ -60,3 +60,4 @@
 2022-08-24 19:37:00.936  INFO 2896 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2022-08-24 19:42:00.951  INFO 2896 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
 2022-08-24 19:43:44.512  INFO 2896 --- [Thread-10] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:138}] to 127.0.0.1:27017
+2022-08-24 19:47:00.964  INFO 2896 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
