@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.com.bootcamp.domain.aggregate.Card;
-import pe.com.bootcamp.domain.repository.CardRepository;
+import pe.com.bootcamp.domain.repository.ICardRepository;
 import pe.com.bootcamp.utilities.ResultBase;
 import pe.com.bootcamp.utilities.UnitResult;
 import reactor.core.publisher.Flux;
@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/Card")
 public class CardController {
 	@Autowired
-	CardRepository cardRepository; 
+	ICardRepository cardRepository; 
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Mono<UnitResult<Card>> create(@RequestBody Card entity){

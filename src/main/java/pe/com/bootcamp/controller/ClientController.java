@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.com.bootcamp.domain.aggregate.Client;
-import pe.com.bootcamp.domain.repository.ClientRepository;
+import pe.com.bootcamp.domain.repository.IClientRepository;
 import pe.com.bootcamp.utilities.ResultBase;
 import pe.com.bootcamp.utilities.UnitResult;
 import reactor.core.publisher.Flux;
@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/Client")
 public class ClientController {
 	@Autowired
-	ClientRepository clientRepository; 
+	IClientRepository clientRepository; 
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Mono<UnitResult<Client>> create(@RequestBody Client entity){

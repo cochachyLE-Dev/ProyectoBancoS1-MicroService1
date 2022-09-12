@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.com.bootcamp.domain.aggregate.BankAccount;
-import pe.com.bootcamp.domain.repository.BankAccountRepository;
+import pe.com.bootcamp.domain.repository.IBankAccountRepository;
 import pe.com.bootcamp.utilities.ResultBase;
 import pe.com.bootcamp.utilities.UnitResult;
 import reactor.core.publisher.Flux;
@@ -22,7 +22,7 @@ import reactor.core.publisher.Mono;
 public class BankAccountController {
 
 	@Autowired
-	BankAccountRepository bankAccountRepository; 
+	IBankAccountRepository bankAccountRepository; 
 		
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Mono<UnitResult<BankAccount>> create(@RequestBody BankAccount entity){
@@ -49,15 +49,16 @@ public class BankAccountController {
 		return bankAccountRepository.findByAccountNumber(accountNumber);
 	}
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	Mono<UnitResult<BankAccount>> findAll(){
+	Mono<UnitResult<BankAccount>> findAll() throws InterruptedException{
+		Thread.sleep(3000);
 		return bankAccountRepository.findAll();
 	}	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	Mono<ResultBase> deleteById(@PathVariable String id){
 		return bankAccountRepository.deleteById(id);
 	}
-	@RequestMapping(value = "/stream", method = RequestMethod.DELETE,produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	Flux<BankAccount> findAllStreaming(@PathVariable String id){
+	@RequestMapping(value = "/stream", method = RequestMethod.GET,produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	Flux<BankAccount> findAllStreaming(){
 		return bankAccountRepository.findAllStreaming().delayElements(Duration.ofSeconds(1));
 	}
 }

@@ -2,6 +2,7 @@ package pe.com.bootcamp.configurations;
 
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,8 @@ import com.mongodb.connection.ClusterConnectionMode;
 
 @Configuration
 public class MongoProvidersConfig {
+	
+	// region provider0
 	@Primary
 	@Bean
 	@ConfigurationProperties(prefix = "mongodb.provider0")
@@ -32,12 +35,15 @@ public class MongoProvidersConfig {
 	    return new SimpleReactiveMongoDatabaseFactory(mongoProviderClient(mongo), mongo.getDatabase());
 	}
 	@Primary
-	@Bean(name = "MongoProvider0Template")
+	@Bean
+	@Qualifier("mongodb.provider0.template")
 	ReactiveMongoTemplate mongoProvider0Template() throws Exception {
 	    return new ReactiveMongoTemplate(mongoProvider0Factory(getProvider0Properties()));
 	}	
+	// endRegion provider0	
+	
 	@Bean
-	MongoClient mongoProviderClient(MongoProperties properties) {
+	MongoClient mongoProviderClient(final MongoProperties properties) {
 	    ConnectionString connectionString = new ConnectionString(properties.determineUri());	    
 	    MongoCredential credential = MongoCredential.createCredential(properties.getUsername(), properties.getDatabase(), properties.getPassword());	    
 	    
