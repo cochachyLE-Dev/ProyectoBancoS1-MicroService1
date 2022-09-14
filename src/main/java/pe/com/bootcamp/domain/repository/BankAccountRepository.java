@@ -113,7 +113,7 @@ public class BankAccountRepository implements IBankAccountRepository {
 	@Override
 	public Mono<ResultBase> deleteById(String id) {				
 		Query query = new Query(Criteria.where("Id").is(id));
-		Mono<ResultBase> result = mongoTemplate.remove(query,BankAccount.class).flatMap(i-> Mono.just(new ResultBase(i.getDeletedCount() > 0, null)))
+		Mono<ResultBase> result = mongoTemplate.remove(query,BankAccount.class).flatMap(i-> Mono.just(new ResultBase(false, null)))
 				.onErrorResume(e-> {
 						logger.error(e.getMessage());
 						return Mono.just(new UnitResult<BankAccount>(true,e.getMessage()));
