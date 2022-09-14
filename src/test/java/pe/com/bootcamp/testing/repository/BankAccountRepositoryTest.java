@@ -17,7 +17,8 @@ import reactor.test.StepVerifier;
 @SpringBootTest
 public class BankAccountRepositoryTest {
 
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private final Logger logger = 
+			LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private IBankAccountRepository bankAccountReposity;
