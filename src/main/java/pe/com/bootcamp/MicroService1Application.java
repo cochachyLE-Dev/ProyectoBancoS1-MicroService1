@@ -10,8 +10,8 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @EnableEurekaClient
 @RefreshScope
 @EnableWebFlux
+//SonarQube
 public class MicroService1Application {
-
 	public static void main(String[] args) {
 		SpringApplication.run(MicroService1Application.class, args);
 	}

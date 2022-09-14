@@ -23,7 +23,7 @@ public class BankAccountController {
 
 	@Autowired
 	IBankAccountRepository bankAccountRepository; 
-		
+	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	Mono<UnitResult<BankAccount>> create(@RequestBody BankAccount entity){
 		return bankAccountRepository.create(entity);

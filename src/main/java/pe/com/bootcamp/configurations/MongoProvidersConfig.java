@@ -40,7 +40,7 @@ public class MongoProvidersConfig {
 	ReactiveMongoTemplate mongoProvider0Template() throws Exception {
 	    return new ReactiveMongoTemplate(mongoProvider0Factory(getProvider0Properties()));
 	}	
-	// endRegion provider0	
+	// endRegion provider0		
 	
 	@Bean
 	MongoClient mongoProviderClient(final MongoProperties properties) {

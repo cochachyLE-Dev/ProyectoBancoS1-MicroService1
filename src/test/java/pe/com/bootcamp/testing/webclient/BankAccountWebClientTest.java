@@ -28,7 +28,7 @@ public class BankAccountWebClientTest {
 	private BankAccount bankAccount = new BankAccount();
 	
 	private final static String baseUrl = "http://localhost:62908/BankAccount";
-	
+		
 	@BeforeEach
 	private void setUp() {
 	    webClient = WebClient.builder()

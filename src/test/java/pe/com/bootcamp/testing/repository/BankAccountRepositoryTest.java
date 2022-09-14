@@ -26,8 +26,8 @@ public class BankAccountRepositoryTest {
 	
 	@BeforeEach
 	public void setUp() {
-		bankAccount.setId("9");
-		bankAccount.setAccountNumber("123-4434-5534-569");
+		bankAccount.setId("29");
+		bankAccount.setAccountNumber("893-4434-5534-569");
 		bankAccount.setClientIdentNum("03720853");
 		bankAccount.setCreationDate(new Date());						
 	}
