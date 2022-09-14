@@ -55,8 +55,7 @@
 		</dependency>
 		<dependency>
 			<groupId>pe.com.bootcamp</groupId>
-			<artifactId>ProyectoBancoS1</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>ProyectoBancoS1</artifactId>			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
