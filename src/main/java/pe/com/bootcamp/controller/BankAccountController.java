@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pe.com.bootcamp.domain.aggregate.BankAccount;
+import pe.com.bootcamp.domain.entity.BankAccountRequest;
 import pe.com.bootcamp.domain.repository.IBankAccountRepository;
 import pe.com.bootcamp.utilities.ResultBase;
 import pe.com.bootcamp.utilities.UnitResult;
@@ -25,12 +26,12 @@ public class BankAccountController {
 	IBankAccountRepository bankAccountRepository; 
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	Mono<UnitResult<BankAccount>> create(@RequestBody BankAccount entity){
-		return bankAccountRepository.create(entity);
+	Mono<UnitResult<BankAccount>> create(@RequestBody BankAccountRequest entity) throws CloneNotSupportedException{
+		return bankAccountRepository.create(entity.copy());
 	}
 	@RequestMapping(value = "/", method = RequestMethod.PUT)
-	Mono<UnitResult<BankAccount>> update(@RequestBody BankAccount entity){
-		return bankAccountRepository.update(entity);
+	Mono<UnitResult<BankAccount>> update(@RequestBody BankAccountRequest entity) throws CloneNotSupportedException{
+		return bankAccountRepository.update(entity.copy());
 	}
 	@RequestMapping(value = "/batch", method = RequestMethod.POST)
 	Mono<UnitResult<BankAccount>> saveAll(@RequestBody Flux<BankAccount> entities){
