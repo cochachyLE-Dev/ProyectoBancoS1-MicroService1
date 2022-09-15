@@ -31,13 +31,13 @@ public class MongoProvidersConfig {
 	}
 	@Primary
 	@Bean
-	ReactiveMongoDatabaseFactory mongoProvider0Factory(final MongoProperties mongo) throws Exception {
+	ReactiveMongoDatabaseFactory mongoProvider0Factory(final MongoProperties mongo) {
 	    return new SimpleReactiveMongoDatabaseFactory(mongoProviderClient(mongo), mongo.getDatabase());
 	}
 	@Primary
 	@Bean
 	@Qualifier("mongodb.provider0.template")
-	ReactiveMongoTemplate mongoProvider0Template() throws Exception {
+	ReactiveMongoTemplate mongoProvider0Template() {
 	    return new ReactiveMongoTemplate(mongoProvider0Factory(getProvider0Properties()));
 	}	
 	// endRegion provider0		
