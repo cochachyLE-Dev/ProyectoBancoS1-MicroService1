@@ -22,3 +22,12 @@ mvn clean verify sonar:sonar  -Dsonar.projectKey=ProyectoBancoS1-MicroService1  
 ![img](https://github.com/cochachyLE-Dev/ProyectoBancoS1-MicroService1/blob/main/Microservice1-Sonarqube-2.PNG)
 ![img](https://github.com/cochachyLE-Dev/ProyectoBancoS1-MicroService1/blob/main/Microservice1-Sonarqube-3.PNG)
 
+Jacoco
+
+```ps1
+mvn help:describe -Dplugin=org.jacoco:jacoco-maven-plugin -Ddetail
+```
+
+![img](https://github.com/cochachyLE-Dev/ProyectoBancoS1-MicroService1/blob/main/Microservice1-Jacoco-1.PNG)
+
+
